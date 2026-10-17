@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #F7F1ED;
+    color: #242424;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-color: #F7F1ED;
+    color: #242424;
+    overflow-x: hidden;
+  }
+}
+
+/* Editorial Grid Background Texture */
+.bg-editorial-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(172, 172, 172, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(172, 172, 172, 0.12) 1px, transparent 1px);
+}
+
+/* Fine hairline vertical grid guides inspired by Nithin M Warrier */
+.guide-line-left {
+  position: fixed;
+  left: 5%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(172, 172, 172, 0.35);
+  pointer-events: none;
+  z-index: 40;
+}
+
+.guide-line-right {
+  position: fixed;
+  right: 5%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(172, 172, 172, 0.35);
+  pointer-events: none;
+  z-index: 40;
+}
+
+@media (max-width: 768px) {
+  .guide-line-left {
+    left: 16px;
+  }
+  .guide-line-right {
+    right: 16px;
+  }
+}
+
+/* Respect reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
